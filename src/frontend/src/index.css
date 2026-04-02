@@ -1,0 +1,331 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 1.5rem;
+
+    /* Romantic pink palette */
+    --background: 97% 0.015 5; /* warm off-white #FFF7F8 */
+    --foreground: 0.35 0.01 5; /* charcoal body */
+    --card: 97% 0.02 5; /* soft cream pink */
+    --card-foreground: 0.15 0.01 5; /* near-black */
+    --popover: 97% 0.02 5;
+    --popover-foreground: 0.15 0.01 5;
+    --primary: 0.6 0.18 10; /* rosy pink #E65A78 */
+    --primary-foreground: 1 0 0; /* white */
+    --secondary: 0.88 0.04 5; /* blush surface #EBC0C2 */
+    --secondary-foreground: 0.15 0.01 5;
+    --muted: 0.93 0.025 5;
+    --muted-foreground: 0.55 0.02 5;
+    --accent: 0.7 0.14 10; /* accent light #F07F97 */
+    --accent-foreground: 1 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.88 0.04 5;
+    --input: 0.93 0.025 5;
+    --ring: 0.6 0.18 10;
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 97% 0.015 5;
+    --sidebar-foreground: 0.15 0.01 5;
+    --sidebar-primary: 0.6 0.18 10;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.88 0.04 5;
+    --sidebar-accent-foreground: 0.15 0.01 5;
+    --sidebar-border: 0.88 0.04 5;
+    --sidebar-ring: 0.6 0.18 10;
+
+    /* Custom romantic tokens */
+    --color-blush-bg: oklch(97% 0.015 5);
+    --color-blush-surface: oklch(88% 0.04 5);
+    --color-accent: oklch(60% 0.18 10);
+    --color-accent-light: oklch(70% 0.14 10);
+    --color-text-heading: oklch(15% 0.01 5);
+    --color-text-body: oklch(35% 0.01 5);
+    --color-petal: oklch(82% 0.06 5);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Dancing Script", cursive;
+    color: var(--color-text-heading);
+  }
+}
+
+/* Page transitions */
+.page-enter {
+  animation: pageEnter 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.page-exit {
+  animation: pageExit 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Romantic animations */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pageExit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.98);
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120px) scale(0.6);
+    opacity: 0;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes petalSway {
+  0%,
+  100% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+}
+
+@keyframes celebrationFly {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px) scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes heartFloat {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-60px) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120px) scale(0.7);
+    opacity: 0;
+  }
+}
+
+@keyframes gentlePulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px oklch(70% 0.14 10 / 0.4);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 35px oklch(70% 0.14 10 / 0.6);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes bounce-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Slide-up stagger for text */
+.slide-up-1 {
+  animation: slideUp 0.6s ease-out 0.1s both;
+}
+.slide-up-2 {
+  animation: slideUp 0.6s ease-out 0.25s both;
+}
+.slide-up-3 {
+  animation: slideUp 0.6s ease-out 0.4s both;
+}
+.slide-up-4 {
+  animation: slideUp 0.6s ease-out 0.55s both;
+}
+.slide-up-5 {
+  animation: slideUp 0.6s ease-out 0.7s both;
+}
+.slide-up-6 {
+  animation: slideUp 0.6s ease-out 0.85s both;
+}
+
+/* Romantic button style */
+.btn-romantic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.85rem 2.5rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-romantic-primary {
+  background: linear-gradient(135deg, oklch(60% 0.18 10), oklch(70% 0.14 10));
+  color: white;
+  box-shadow: 0 4px 20px oklch(60% 0.18 10 / 0.4);
+}
+
+.btn-romantic-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 30px oklch(60% 0.18 10 / 0.6);
+}
+
+.btn-romantic-secondary {
+  background: white;
+  color: oklch(60% 0.18 10);
+  border: 2px solid oklch(70% 0.14 10);
+  box-shadow: 0 3px 12px oklch(60% 0.18 10 / 0.2);
+}
+
+.btn-romantic-secondary:hover {
+  transform: scale(1.05);
+  background: oklch(97% 0.015 5);
+  box-shadow: 0 5px 20px oklch(60% 0.18 10 / 0.3);
+}
+
+.btn-glow-pulse {
+  animation: gentlePulse 2.5s ease-in-out infinite;
+}
+
+/* Music toggle */
+.music-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  background: white;
+  color: oklch(60% 0.18 10);
+  border: 1.5px solid oklch(70% 0.14 10 / 0.5);
+  box-shadow: 0 4px 16px oklch(60% 0.18 10 / 0.2);
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+.music-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px oklch(60% 0.18 10 / 0.35);
+}
+
+/* Romantic card */
+.romantic-card {
+  background: white;
+  border-radius: 2rem;
+  padding: 2rem;
+  box-shadow: 0 8px 40px oklch(60% 0.18 10 / 0.12);
+  border: 1px solid oklch(88% 0.04 5);
+  position: relative;
+  overflow: hidden;
+}
+
+.romantic-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    oklch(70% 0.14 10),
+    oklch(60% 0.18 10),
+    oklch(70% 0.14 10)
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Petal canvas base */
+#petal-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Page overlay */
+.page-layer {
+  position: relative;
+  z-index: 1;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
